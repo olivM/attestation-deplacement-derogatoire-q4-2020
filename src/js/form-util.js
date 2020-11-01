@@ -1,5 +1,3 @@
-// http://localhost:1234/?firstname=Olivier&lastname=Mourlevat&birthday=03/12/1976&placeofbirth=PAris%20XIV&address=7%20bis%20rue%20Coquebert%20de%20Neuville&city=NAntes&zipcode=44000&field-reason=sport_animaux
-
 import { $, $$, downloadBlob } from './dom-utils'
 import { addSlash, getFormattedDate } from './util'
 import pdfBase from '../certificate.pdf'
@@ -96,11 +94,11 @@ export function prepareInputs(
     const inputValue = input.getAttribute('value')
     const value = urlParams.get(name)
     switch (input.getAttribute('type')) {
-      default:
-        if (value) input.value = value
-        break
       case 'checkbox':
         if (value === inputValue) input.checked = true
+        break
+      default:
+        if (value) input.value = value
         break
     }
 
